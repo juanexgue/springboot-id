@@ -19,11 +19,13 @@ public class Productos_Controller {
 
     @GetMapping()
     public List<Productos> ListaProductos() {
+        // Productos_Services servicio = new Productos_Services();
         return servicio.findAll();
     }
 
     @GetMapping("/{idProducto}")
     public Productos mostrar(@PathVariable int idProducto) {
+        // Productos_Services servicio = new Productos_Services();
         return servicio.buscarId(idProducto);
     }
 }
