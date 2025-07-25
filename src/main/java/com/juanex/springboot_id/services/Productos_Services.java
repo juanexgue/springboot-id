@@ -14,9 +14,8 @@ public class Productos_Services {
     public List<Productos> findAll() {
         return repositorio.findAll().stream().map(p -> {
             Double precioTotal = p.getPrecio() * 1.50d;
-            // p.setPrecio(precioTotal.intValue());
-            var Producto_nuevoPrecio = new Productos(p.getIdProducto(), p.getNombre(),
-                    precioTotal.intValue());
+            var Producto_nuevoPrecio = (Productos) p.clone();
+            Producto_nuevoPrecio.setPrecio(precioTotal.intValue());
             return Producto_nuevoPrecio;
         }).collect(Collectors.toList());
     }

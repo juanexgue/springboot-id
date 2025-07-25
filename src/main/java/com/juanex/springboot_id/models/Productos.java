@@ -1,6 +1,6 @@
 package com.juanex.springboot_id.models;
 
-public class Productos {
+public class Productos implements Cloneable {
     private Long idProducto;
     private String nombre;
     private int precio;
@@ -33,6 +33,15 @@ public class Productos {
 
     public int getPrecio() {
         return precio;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            return new Productos(idProducto, nombre, precio);
+        }
     }
 
 }
