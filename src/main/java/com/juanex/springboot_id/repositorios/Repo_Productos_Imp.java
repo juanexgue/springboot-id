@@ -5,11 +5,11 @@ import java.util.List;
 
 import com.juanex.springboot_id.models.Productos;
 
-public class Repo_Productos {
+public class Repo_Productos_Imp implements ProductoRepositorio {
 
     List<Productos> datos;
 
-    public Repo_Productos() {
+    public Repo_Productos_Imp() {
         this.datos = Arrays.asList(
                 new Productos(001L, "Disco duro", 50),
                 new Productos(002L, "Memoria Ram", 150));
