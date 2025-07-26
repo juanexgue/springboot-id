@@ -2,12 +2,16 @@ package com.juanex.springboot_id.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import com.juanex.springboot_id.models.Productos;
 import com.juanex.springboot_id.repositorios.Repo_Productos_Imp;
 
+@Component
 public class Productos_Services_Imp implements ProductosServicios {
 
-    private Repo_Productos_Imp repositorio = new Repo_Productos_Imp();
+    @Autowired
+    private Repo_Productos_Imp repositorio;
 
     @Override
     public List<Productos> findAll() {

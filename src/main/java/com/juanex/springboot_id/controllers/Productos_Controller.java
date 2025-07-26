@@ -1,12 +1,10 @@
 package com.juanex.springboot_id.controllers;
 
 import java.util.List;
-
 import org.springframework.web.bind.annotation.RestController;
-
 import com.juanex.springboot_id.models.Productos;
 import com.juanex.springboot_id.services.Productos_Services_Imp;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/api")
 public class Productos_Controller {
 
-    private Productos_Services_Imp servicio = new Productos_Services_Imp();
+    @Autowired
+    private Productos_Services_Imp servicio;
 
     @GetMapping()
     public List<Productos> ListaProductos() {
